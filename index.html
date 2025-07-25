@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <title>JIEJIE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img src="jiejie.webp" alt="JIEJIE" class="main-image">
+    </div>
+
+    <h1 class="site-title">JIEJIE.NET</h1>
+
+    <p class="site-description">她打破世俗枷锁，不被他人定义，想做什么就做什么，在自己的热爱中活着</p>
+
+    <div class="email-section">
+      <p class="email-display email-hidden" id="emailDisplay" onclick="revealEmail()">l♥ve@jiejie.net</p>
+      <p class="reveal-hint" id="hint">点击显示完整邮箱</p>
+    </div>
+  </div>
+
+  <script>
+    function revealEmail() {
+      const emailDisplay = document.getElementById('emailDisplay');
+      const hint = document.getElementById('hint');
+
+      emailDisplay.textContent = 'love@jiejie.net';
+      emailDisplay.classList.remove('email-hidden');
+      hint.textContent = '点击复制邮箱';
+
+      // 添加复制功能
+      emailDisplay.onclick = function () {
+        navigator.clipboard.writeText('love@jiejie.net').then(function () {
+          const originalText = emailDisplay.textContent;
+          emailDisplay.textContent = '已复制！';
+          setTimeout(() => {
+            emailDisplay.textContent = originalText;
+          }, 1500);
+        });
+      };
+    }
+  </script>
+</body>
+
+</html>
